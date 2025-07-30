@@ -12,7 +12,9 @@ bot.start((ctx)=>{
 bot.command("products", async(ctx)=>{
     let {data}= await axios.get("https://bac-endcrud-1.onrender.com/products")
     data.forEach(e => {
-        ctx.reply(`nomi: ${e.name}, narhi: $${e.price} ,${e.desc}`)
+        ctx.replyWithPhoto(`${e.img}`,
+            {caption: `nomi:${e.name}, narhi: $${e.price} ,${e.desc}`}
+        )
     });
 })
 
